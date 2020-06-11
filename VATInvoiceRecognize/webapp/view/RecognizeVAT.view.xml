@@ -1,0 +1,250 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="ns.VATInvoiceRecognize.controller.RecognizeVAT"
+	height="100%">
+	<Page id="idRecognizeVATPage" class="sapUiContentPadding" showHeader="false" busyIndicatorDelay="0">
+		<subHeader>
+			<Toolbar>
+				<ToolbarSpacer/>
+					<Title text="{i18n>appTitle}" level="H3"/>
+				<ToolbarSpacer/>
+                <Button icon="sap-icon://image-viewer" type="Transparent" tooltip="查看票据图片" class="sapUiTinyMarginEnd"
+                    press="handlePressViewInvoiceImg"
+                    visible="{=${viewModel>/invoiceInfo/Pic}.length !== 0}"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+            <f:Form
+                editable="true">
+                <f:toolbar>
+                    <Toolbar>
+                        <Title text="发票信息"/>
+                        <ToolbarSpacer />
+                    </Toolbar>
+                </f:toolbar>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="3"
+                        labelSpanM="12"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="发票种类">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Invoicetype}"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="发票代码">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Invoicecode}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="发票号码">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Invoicenum}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="校验码">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Checkcode}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="开票日期">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Invoicedate}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="密码区">
+                                <f:fields>
+                                    <TextArea value="{viewModel>/invoiceInfo/Password}"></TextArea>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="合计金额">
+                                <f:fields>
+                                    <Input type="Number" value="{viewModel>/invoiceInfo/Totalamount}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="合计税额">
+                                <f:fields>
+                                    <Input type="Number" value="{viewModel>/invoiceInfo/Totaltax}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="备注">
+                                <f:fields>
+                                    <TextArea value="{viewModel>/invoiceInfo/Remarks}"></TextArea>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer title="销售方">
+                        <f:formElements>
+                            <f:FormElement label="名称">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Sellername}"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="纳税人识别号">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Sellerregisternum}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="地址、电话">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Selleraddress}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="开户行及账号">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Sellerbank}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="收款人">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Payee}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="复核">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Checker}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="开票人">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Notedrawer}"></Input>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer title="购买方">
+                        <f:formElements>
+                            <f:FormElement label="名称">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Purchasername}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="纳税人识别号">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Purchaserregisternum}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="地址、电话">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Purchaseraddress}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="开户行及账号">
+                                <f:fields>
+                                    <Input value="{viewModel>/invoiceInfo/Purchaserbank}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+            <Table id="idProductsTable" class="sapUiSmallMarginBottom"
+                items="{
+                    path: 'viewModel>/invoiceInfo/INVOICE_ITEMSet',
+                    sorter: {
+                        path: 'Commodityprice'
+                    }
+                }">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="货物或应税劳务、服务信息" level="H2"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column vAlign="Middle" hAlign="Begin"
+                        width="15em">
+                        <Text text="名称" />
+                    </Column>
+                    <Column vAlign="Middle"
+                        minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="规格型号" />
+                    </Column>
+                    <Column vAlign="Middle" width="20rem"
+                        minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="数量、单位" />
+                    </Column>
+                    <Column vAlign="Middle"
+                        minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="单价" />
+                    </Column>
+                    <Column vAlign="Middle"
+                        minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="税率" />
+                    </Column>
+                    <Column vAlign="Middle"
+                        minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="税额" />
+                    </Column>
+                    <Column vAlign="Middle" width="12rem">
+                        <Text text="金额" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Input value="{viewModel>Commodityname}"></Input>
+                            <Input value="{viewModel>Commoditytype}"></Input>
+                            <HBox>
+                                <Input type="Number" value="{viewModel>Commoditynum}"></Input>
+                                <Input value="{viewModel>Commodityunit}" width="12%"></Input>
+                            </HBox>
+                            <Input type="Number" value="{viewModel>Commodityprice}"></Input>
+                            <Input type="Number" value="{viewModel>Commodityamount}"></Input>
+                            <Input value="{viewModel>Commoditytaxrate}"></Input>
+                            <Input type="Number" value="{viewModel>Commoditytax}"></Input>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+		<footer>
+			<OverflowToolbar>
+                <u:FileUploader buttonOnly="true" style="Transparent"
+                    id="invoicefileUploader" icon="sap-icon://add-photo"
+                    name="myFileUpload" fileType="jpg,png,jpeg,bmp"
+                    buttonText=" " useMultipart="false"
+                    tooltip="选择照片" sameFilenameAllowed="true"
+                    uploadUrl="/" maximumFileSize="4"
+                    change="handleUploadInvoiceChange"
+                    fileSizeExceed="handleFileSizeExceed"
+                    uploadComplete="handleUploadComplete"/>
+                <!-- <Button
+                    icon="sap-icon://upload" tooltip="选择图片上传"
+                    class="sapUiSmallMargin"
+                    press=".onPressUploadBtn"></Button> -->
+				<ToolbarSpacer/>
+				<Button text="提交" type="Accept" tooltip="提交" class="sapUiTinyMarginEnd"
+					enabled="{=${viewModel>/invoiceInfo/Pic}.length !== 0}"
+                    icon="sap-icon://accept" press="handlePressSubmit"/>
+                <!-- <Button text="Location" type="Emphasized" tooltip="Location" class="sapUiTinyMarginEnd"
+					press="onPressGetLocation"/> -->
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

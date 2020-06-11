@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZINVOICE_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Invoice" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Invoicetype"/>
+                    <PropertyRef Name="Invoicecode"/>
+                    <PropertyRef Name="Invoicenum"/>
+                </Key>
+                <Property Name="Invoicetype" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="InvoiceType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Invoicecode" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="InvoiceCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Invoicenum" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="InvoiceNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Checkcode" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="CheckCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Invoicedate" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="InvoiceDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Password" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Password" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Totalamount" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TotalAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Totaltax" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TotalTax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Remarks" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Remarks" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sellername" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="SellerName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sellerregisternum" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="SellerRegisterNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Selleraddress" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="SellerAddress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sellerbank" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="SellerBank" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Payee" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Payee" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Checker" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Checker" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Notedrawer" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="NoteDrawer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Purchasername" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="PurchaserName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Purchaserregisternum" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="PurchaserRegisterNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Purchaseraddress" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="PurchaserAddress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Purchaserbank" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="PurchaserBank" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commodityname" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="CommodityName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commoditytype" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="CommodityType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commoditynum" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="CommodityNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commodityunit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="CommodityUnit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commodityprice" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="CommodityPrice" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commodityamount" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="CommodityAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commoditytaxrate" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="CommodityTaxRate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Commoditytax" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="CommodityTax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZINVOICE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="InvoiceSet" EntityType="ZINVOICE_SRV.Invoice" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://10.254.171.232:8031/sap/opu/odata/SAP/ZINVOICE_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="http://10.254.171.232:8031/sap/opu/odata/SAP/ZINVOICE_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

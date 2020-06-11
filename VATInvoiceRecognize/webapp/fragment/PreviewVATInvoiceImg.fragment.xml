@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover
+		title="票据"
+		class="sapUiPopupWithPadding"
+		placement="Bottom">
+        <content>
+		    <Image src="{viewModel>/invoiceInfo/Pic}" width="100%" densityAware="false" />
+        </content>
+		<endButton>
+			<Button
+                text="关闭"
+                press="handleCloseInvoicePreviewPress" />
+		</endButton>
+	</ResponsivePopover>
+</core:FragmentDefinition>
