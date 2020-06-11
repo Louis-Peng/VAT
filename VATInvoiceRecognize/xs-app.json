@@ -1,0 +1,32 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "authenticationType": "xsuaa",
+      "csrfProtection": false,
+      "source": "^/at1/(.*)$",
+      "target": "$1",
+      "destination": "at1"
+    },
+    {
+      "authenticationType": "none",
+      "csrfProtection": false,
+      "source": "^/baiduApiOCR/(.*)$",
+      "target": "$1",
+      "destination": "baiduApiOCR"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ],
+  "login": {
+    "callbackEndpoint": "/nsVATInvoiceRecognize/login/callback"
+  }
+}

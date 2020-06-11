@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+	xmlns="sap.m" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover showHeader="{=${device>/system/phone}}"
+		class="sapUiPopupWithPadding"
+		placement="Top">
+		<content>
+            <VBox>
+                <Button type="Transparent"
+                    text="拍照"
+                    icon="sap-icon://add-photo"/>
+                <u:FileUploader buttonOnly="true" style="Transparent"
+                    id="fileUploader" icon="sap-icon://picture"
+                    name="myFileUpload" fileType="jpg, png, jpge"
+                    buttonText="选择照片" useMultipart="false"
+                    tooltip="选择照片"
+                    uploadUrl="upload/"
+                    change="handleUploadInvoiceChange"
+                    uploadComplete="handleUploadComplete"/>
+            </VBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>
